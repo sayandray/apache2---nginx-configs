@@ -1,0 +1,46 @@
+sudo apt update
+sudo apt upgrade
+sudo apt install nginx certbot python3-certbot-nginx
+sudo apt install npm
+
+
+
+sudo apt-get install curl
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install --lts
+source ~/.bashrc
+nvm list-remote
+nvm install v20.10.0
+sudo npm install -g pm2
+
+
+cd /etc/nginx/sites-available
+vi app-url.conf
+
+#Add the conf nginx details and save it
+
+sudo ln -s /etc/nginx/sites-available/name_of_app /etc/nginx/sites-enabled/name_of_app
+
+rm -rf default.conf  # First be in folder /etc/nginx/sites-available/
+
+systemctl restart nginx
+
+
+sudo certbot --nginx -d website.com
+
+
+
+
+
+
+To REMOVE NodeJs:-
+-------------------
+
+sudo apt remove nodejs
+sudo apt purge nodejs
+nvm current
+nvm deactivate
+nvm uninstall v20.10.0
+node -v
+npm -v
+
